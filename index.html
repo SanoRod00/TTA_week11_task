@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Detection App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+  <div class="bg-white shadow-md rounded p-8 max-w-sm w-full">
+    <h1 class="text-2xl font-bold text-center mb-4">Weather Detection App</h1>
+    <div class="mb-4">
+      <input 
+        type="text" 
+        id="weatherInput" 
+        placeholder="Enter weather condition" 
+        class="border border-gray-300 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    <div class="mb-4 text-center">
+      <button 
+        id="checkWeatherBtn" 
+        class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        Check Weather
+      </button>
+    </div>
+    <p id="weatherMessage" class="text-center text-gray-700 font-medium"></p>
+  </div>
+
+  <script>
+    document.getElementById('checkWeatherBtn').addEventListener('click', function() {
+      const weatherInput = document.getElementById('weatherInput').value.trim().toLowerCase();
+      const weatherMessage = document.getElementById('weatherMessage');
+
+      if (weatherInput === 'sunny') {
+        weatherMessage.textContent = "It’s sunny! Wear sunglasses and apply sunscreen.";
+      } else if (weatherInput === 'rainy') {
+        weatherMessage.textContent = "It’s rainy! Don’t forget your umbrella.";
+      } else if (weatherInput === 'cloudy') {
+        weatherMessage.textContent = "It’s cloudy! You might want to carry a light jacket.";
+      } else if (weatherInput === 'snowy') {
+        weatherMessage.textContent = "It’s snowy! Dress warmly and stay safe.";
+      } else {
+        weatherMessage.textContent = "Sorry, I don’t recognize that weather condition.";
+      }
+    });
+  </script>
+</body>
+</html>
